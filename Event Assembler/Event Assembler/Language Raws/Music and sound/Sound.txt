@@ -1,0 +1,12 @@
+#Chapters: 1, 17A, 18A
+##Play sound effect.
+SOUN, 0x3C, 8, -game:FE6 -indexMode:8
+##Sound effect to play.
+	Music ID, 4, 4
+
+
+SOUN, 0x7F, 4, -game:FE7 -indexMode:8
+	Music ID, 2, 2
+
+SOUN, 0x1620, 4, -game:FE8 -indexMode:8
+	Music ID, 2, 2
