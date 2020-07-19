@@ -1,30 +1,42 @@
-##Changes vision distance.
-VCBF, 0x9E, 4, -game:FE7 -indexMode:8
-##Distance to change to.
-	Vision distance, 2, 1, -preferredBase:10
+##command:WEAther (1)
+##Changes the current weather status.
+WEA1, 0x4C, 8, -game:FE6 -indexMode:8
+##Weather type to change to.
+	WeatherTypeID, 4, 4
 
-##Changes vision distance.
-VCWF, 0x9D, 4, -game:FE7 -indexMode:8
-##Distance to change to.
-	Vision distance, 2, 1, -preferredBase:10
 
-VCWF, 0x2920, 4, -game:FE8 -indexMode:8
-	Vision distance, 2, 1, -preferredBase:10
 
-##Changes weather.
+##command:WEAther (1)
+##Changes the current weather status.
 WEA1, 0x9B, 4, -game:FE7 -indexMode:8
 ##Weather type to change to.
-	Weather type ID, 2, 1
+	WeatherTypeID, 2, 1
 
-WEA1, 0x2821, 4, -game:FE8 -indexMode:8
-	Weather type ID, 2, 1
-
-##Changes weather.
+##command:WEAther (2)
+##Changes the current weather status.
 WEA2, 0x9C, 4, -game:FE7 -indexMode:8
 ##Weather type to change to.
-	Weather type ID, 2, 1
+	WeatherTypeID, 2, 1
+
+##Changes this map's fog vision distance.
+VCBF, 0x9E, 4, -game:FE7 -indexMode:8
+##Distance (in tiles) to change to (0 means no fog).
+	VisionDistance, 2, 1, -preferredBase:10
+
+##Changes this map's fog vision distance.
+VCWF, 0x9D, 4, -game:FE7 -indexMode:8
+##Distance (in tiles) to change to (0 means no fog).
+	VisionDistance, 2, 1, -preferredBase:10
 
 
-#Chapters: 20A
-WEA1, 0x4C, 8, -game:FE6 -indexMode:8
-	Weather type ID, 4, 4
+
+##command:WEAther (1)
+##Changes the current weather status.
+WEA1, 0x2821, 4, -game:FE8 -indexMode:8
+##Weather type to change to.
+	WeatherTypeID, 2, 1
+
+##Changes this map's fog vision distance.
+VCWF, 0x2920, 4, -game:FE8 -indexMode:8
+##Distance (in tiles) to change to (0 means no fog).
+	VisionDistance, 2, 1, -preferredBase:10

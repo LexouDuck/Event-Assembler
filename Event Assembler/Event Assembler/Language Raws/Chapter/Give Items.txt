@@ -1,48 +1,87 @@
-#Chapters: 10A
-##Gives item to a character.
+
+# FE6
+
+##command:GIVE ITEM to unit
+##Gives an item to a character.
+##aliases:ITGC
+GIVE_ITEM, 0x27, 12, -game:FE6 -indexMode:8
+##The character to whom the item should be given.
+	CharacterID, 4, 4
+##The item to give.
+	ItemID, 8, 4
+
+##command:GIVE ITEM to unit
+##Gives an item to a character.
+##aliases:GIVE_ITEM
 ITGC, 0x27, 12, -game:FE6 -indexMode:8
-##Character to give item.
-	Character, 4, 4
-##Item to give to the character.
-	Item, 8, 4	
+##The character to whom the item should be given.
+	CharacterID, 4, 4
+##The item to give.
+	ItemID, 8, 4
 
+##Gives an item to the current character, like in villages.
+GIVE_ITEM_TOCURRENT, 0x26, 8, -game:FE6 -indexMode:8
+##The item to give.
+	ItemID, 4, 2
+
+
+
+# FE7
+
+##command:GIVE ITEM to unit
+##Gives an item to a character.
+##aliases:ITGC
+GIVE_ITEM, 0x5C, 12, -game:FE7 -indexMode:8
+##The character to whom the item should be given.
+	CharacterID, 4, 2
+##The item to give.
+	ItemID, 8, 2
+
+##command:GIVE ITEM to unit
+##Gives an item to a character.
+##aliases:GIVE_ITEM
 ITGC, 0x5C, 12, -game:FE7 -indexMode:8
-	Character, 4, 2
-	Item, 8, 2
-
-##Give item to the main character.
-ITGM, 0x5D, 8, -game:FE7 -indexMode:8
-##Item to give to the main character.
-	Item, 4, 2
+##The character to whom the item should be given.
+	CharacterID, 4, 2
+##The item to give.
+	ItemID, 8, 2
 
 
-##Gives item to the current character, like
-##in villages.
-ITGV, 0x26, 8, -game:FE6 -indexMode:8
-##Item to give to the current character.
-	Item, 4, 2
+##Gives an item to the current character, like in villages.
+GIVE_ITEM_TOCURRENT, 0x5B, 8, -game:FE7 -indexMode:8
+##The item to give.
+	ItemID, 4, 2
 
-ITGV, 0x5B, 8, -game:FE7 -indexMode:8
-	Item, 4, 2
+##Gives an item to the main character.
+GIVE_ITEM_TOMAINCHAR, 0x5D, 8, -game:FE7 -indexMode:8
+##The item to give.
+	ItemID, 4, 2
 
-##List of items used by a shop.
-SHLI, 0, 0, -game:FE6:FE7:FE8 -indexMode:8 -terminatingList:00 -end -priority:shopList -offsetMod:1
-##Item for sale on the shop.
-	Item, 0, 2
-	
-GIVEITEMTO, 0x3720, 4, -game:FE8 -indexMode:8
-	Character, 2, 2
 
-GIVEITEMTOMAIN, 0x3721, 4, -game:FE8 -indexMode:8
-	Village or cutscene, 2, 2
 
-#Give item of ID stored in Memory slot 0x1.
-GIVETO, 0x3720, 4, -game:FE8 -indexMode:8
-	Character, 2, 2
+# FE8
 
-#Give an item to the main lord.
-GIVETOMAIN, 0x3721, 4, -game:FE8 -indexMode:8
-	Village or cutscene, 2, 2
+##command:GIVE ITEM to unit
+##Gives an item of ID stored in Memory slot 0x1.
+##aliases:ITGC
+GIVE_ITEM, 0x3720, 4, -game:FE8 -indexMode:8
+##The character to whom the item should be given.
+	CharacterID, 2, 2
 
-#Gives Item in slot 0x1 to character of ID in slot 0x3
-GIVETOSLOT3, 0x3722, 4, -game:FE8 -indexMode:8
+##command:GIVE ITEM to unit
+##Gives an item of ID stored in Memory slot 0x1.
+##aliases:GIVE_ITEM
+ITGC, 0x3720, 4, -game:FE8 -indexMode:8
+##The character to whom the item should be given.
+	CharacterID, 2, 2
+
+
+##Gives an item of ID stored in Memory slot 0x1
+##to the main lord character.
+GIVE_ITEM_TOMAINCHAR, 0x3721, 4, -game:FE8 -indexMode:8
+##Determines the way the item is given
+	VillageOrCutscene, 2, 2
+
+##Gives an item of ID stored in Memory slot 0x1
+##to the character of ID in Memory slot 0x3
+GIVE_ITEM_TOSLOT3, 0x3722, 4, -game:FE8 -indexMode:8

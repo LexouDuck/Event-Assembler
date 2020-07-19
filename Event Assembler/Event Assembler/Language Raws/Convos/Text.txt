@@ -1,90 +1,143 @@
-##Shows text normally.
-TEX1, 7, 8, -game:FE6 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
 
-TEXT, 7, 8, -game:FE6 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
+#FE6
 
-#Chapters: 1, 2, 8...
-##Continues showing text without resetting
-##portaits and text bubbles.
-MORETEXT, 0x8, 8, -game:FE6 -indexMode:8
-##Text to show.
-	Text ID, 4, 4
+##command:show TEXT
+##Displays text.
+##aliases:TEX1
+TEXT, 0x07, 8, -game:FE6 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+##command:show TEXt (1)
+##Displays text.
+##aliases:TEXT
+TEX1, 0x07, 8, -game:FE6 -indexMode:8
+##The text to display.
+	TextID, 4, 2
 
 
-#Rename at some point.
-TEX1, 0xD, 8, -game:FE7 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
+##Continues displaying text without resetting
+##the current text bubbles and/or portraits.
+##aliases:MORETEXT
+TEXT_CONTINUE, 0x08, 8, -game:FE6 -indexMode:8
+##The text to display.
+	TextID, 4, 4
 
-TEXT, 0xD, 8, -game:FE7 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
+##Continues displaying text without resetting
+##the current text bubbles and/or portraits.
+##aliases:TEXT_CONTINUE
+MORETEXT, 0x08, 8, -game:FE6 -indexMode:8
+##The text to display.
+	TextID, 4, 4
 
-##Shows text.
-TEX2, 0xE, 8, -game:FE7 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
 
+
+# FE7
+
+##Displays text.
+##aliases:TEX1
+TEXT, 0x0D, 8, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+##Displays text.
+##aliases:TEXT
+TEX1, 0x0D, 8, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+##Displays text.
+##aliases:TEX2
+TEXT2, 0x0D, 8, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+##Displays text.
+##aliases:TEXT2
+TEX2, 0x0E, 8, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+
+##Continues displaying text without resetting
+##the current text bubbles and/or portraits.
+##aliases:MORETEXT
+TEXT_CONTINUE, 0x11, 8, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+
+##Continues displaying text without resetting
+##the current text bubbles and/or portraits.
+##aliases:TEXT_CONTINUE
 MORETEXT, 0x11, 8, -game:FE7 -indexMode:8
-	Text ID, 4, 2
+##The text to display.
+	TextID, 4, 2
 
-##Shows text.
+
+##command:TEXT for Cutscene Graphics
+##Displays text on a cutscene screen image.
+TEXTCG, 0xCF, 12, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 2
+##(Unknown, is usually 1)
+	MaybeCutsceneID, 8, 1
+
+##command:TEXT for Cutscene Graphics
+##Displays text on a cutscene screen image.
 TEXTCG, 0xCF, 12, -game:FE7 -indexMode:8 -noDisassembly
-##Text to show.
-	Text ID, 4, 2
+	TextID, 4, 2
 	1, 8, 1, -fixed
 
-TEXTCG, 0xCF, 12, -game:FE7 -indexMode:8
-	Text ID, 4, 2
-##Unknown, usually 1.
-	CG Value, 8, 1
+##command:MORE TEXT for Cutscene Graphics
+##Follows up a previous 'TEXTCG' command,
+##to display another text entry without resetting
+##the current text bubbles and/or portraits.
+##aliases:MORETEXTCG
+TEXTCG_CONTINUE, 0xD1, 12, -game:FE7 -indexMode:8
+##The text to display.
+	TextID, 4, 4
+##(Unknown, is usually 1)
+	CutsceneID, 8, 4
 
-
-#Only after other cutscene texts
-#Chapters: 2, 6, 16...
+##command:MORE TEXT for Cutscene Graphics
+##Follows up a previous 'TEXTCG' command,
+##to display another text entry without resetting
+##the current text bubbles and/or portraits.
+##aliases:TEXTCG_CONTINUE
 MORETEXTCG, 0xD1, 12, -game:FE7 -indexMode:8
-	Text ID, 4, 4
-#Usually 1
-	CG Value, 8, 4
-
-
-##Shows text with specific bubble type and position.
-TEX6, 0xA7, 12, -game:FE7 -indexMode:8
-##Bubble type to use
-	Bubble type, 2, 2
-##Position of the text. [0,0] is the center of the screen.
-	Text position, 4, 4, -coordinates:2 -preferredBase:10
-##Text to show.
-	Text ID, 8, 2
-
-##Shows text.
-TEX8, 0xD7, 12, -game:FE7 -indexMode:8
-##Text to show.
-	Text ID, 4, 2
-##Position of the text.
-	Text position, 8, 4, -coordinates:2 -preferredBase:10
+##The text to display.
+	TextID, 4, 4
+##(Unknown, is usually 1)
+	CutsceneID, 8, 4
 
 
 
-##Starts the text showing.
+# FE8
+
+##command:TEXT START
+##Begins text displaying.
 TEXTSTART, 0x1A20, 4, -game:FE8 -indexMode:8
 
-##Shows text after TEXTSTART.
-#Parameter 0xFFFF displays text pointed to by value in Memory slot 0x2
+##command:TEXT SHOW
+##Displays text, after a 'TEXTSTART' command.
 TEXTSHOW, 0x1B20, 4, -game:FE8 -indexMode:8
-##Text to show.
-	Text ID, 2, 2
+##The text to display.
+##If this is 0xFFFF, this command will use
+##the value in MemorySlot 0x2 as 'TextID'.
+	TextID, 2, 2
 
-#Same as TEXTSHOW
+##command:TEXT SHOW2
+##Displays text, after a 'TEXTSTART' command.
 TEXTSHOW2, 0x1B21, 4, -game:FE8 -indexMode:8
-	Text ID, 2, 2
+##The text to display.
+##If this is 0xFFFF, this command will use
+##the value in MemorySlot 0x2 as 'TextID'.
+	TextID, 2, 2
 
-##Shows more text after TEXTSHOW.
+##command:TEXT CONT
+##Displays more text, after a preceding 'TEXTSHOW'.
 TEXTCONT, 0x1C20, 4, -game:FE8 -indexMode:8
 
-##Ends text showing started by TEXTSTART.
+##command:TEXT END
+##Ends text displaying started by 'TEXTSTART'.
 TEXTEND, 0x1D20, 4, -game:FE8 -indexMode:8
