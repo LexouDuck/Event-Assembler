@@ -9,18 +9,20 @@ using System.Collections.Generic;
 
 namespace Nintenlord.Event_Assembler.Core.Code.Language
 {
+    using PriorityList = Tuple<string, List<Priority>>;
+
     public static class FE6CodeLanguage
     {
         public static readonly string Name = "FE6";
 
-        public static readonly Tuple<string, List<Priority>>[][] PointerList = new Tuple<string, List<Priority>>[6][]
+        public static readonly PriorityList[][] PointerList = new PriorityList[6][]
         {
-            new Tuple<string, List<Priority>>[1]{ new Tuple<string, List<Priority>>("TurnBasedEvents", EACodeLanguage.MainPriorities) },
-            new Tuple<string, List<Priority>>[1]{ new Tuple<string, List<Priority>>("CharacterBasedEvents", EACodeLanguage.MainPriorities) },
-            new Tuple<string, List<Priority>>[1]{ new Tuple<string, List<Priority>>("LocationBasedEvents", EACodeLanguage.MainPriorities) },
-            new Tuple<string, List<Priority>>[1]{ new Tuple<string, List<Priority>>("MiscBasedEvents", EACodeLanguage.MainPriorities) },
-            new Tuple<string, List<Priority>>[2]{ new Tuple<string, List<Priority>>("EnemyUnits", EACodeLanguage.UnitPriorities), new Tuple<string, List<Priority>>("AllyUnits", EACodeLanguage.UnitPriorities) },
-            new Tuple<string, List<Priority>>[1]{ new Tuple<string, List<Priority>>("EndingScene", EACodeLanguage.NormalPriorities) }
+            new PriorityList[1]{ new PriorityList("TurnBasedEvents", EACodeLanguage.MainPriorities) },
+            new PriorityList[1]{ new PriorityList("CharacterBasedEvents", EACodeLanguage.MainPriorities) },
+            new PriorityList[1]{ new PriorityList("LocationBasedEvents", EACodeLanguage.MainPriorities) },
+            new PriorityList[1]{ new PriorityList("MiscBasedEvents", EACodeLanguage.MainPriorities) },
+            new PriorityList[2]{ new PriorityList("EnemyUnits", EACodeLanguage.UnitPriorities), new PriorityList("AllyUnits", EACodeLanguage.UnitPriorities) },
+            new PriorityList[1]{ new PriorityList("EndingScene", EACodeLanguage.NormalPriorities) }
         };
     }
 }
