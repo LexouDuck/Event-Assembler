@@ -423,6 +423,9 @@ namespace Nintenlord.Collections
             }
         }
 
+        /// <summary>
+        /// Returns the number up to which elements are equal, when looked at in sequence, in two different-size ILists
+        /// </summary>
         public static int GetEqualsInBeginning<T>(this IList<T> a, IList<T> b, IEqualityComparer<T> comp)
         {
             int max = Math.Min(a.Count, b.Count);

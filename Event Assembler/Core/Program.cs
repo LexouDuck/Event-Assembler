@@ -25,7 +25,8 @@ namespace Nintenlord.Event_Assembler.Core
 	{
 		public static readonly StringComparer stringComparer = StringComparer.OrdinalIgnoreCase;
 
-		private static IDictionary<string, EACodeLanguage> languages;
+		public static IDictionary<string, EACodeLanguage> Languages;
+
 		private static ProgramRunConfig runConfig = new ProgramRunConfig ();
 
 		public class ProgramRunConfig
@@ -101,9 +102,11 @@ namespace Nintenlord.Event_Assembler.Core
 
 		public static bool CodesLoaded {
 			get {
-				return Program.languages != null;
+				return Program.Languages != null;
 			}
 		}
+
+
 
 		private static int Main (string[] args)
 		{
@@ -137,7 +140,7 @@ namespace Nintenlord.Event_Assembler.Core
 				case ProgramRunConfig.RunExecType.GenPNHighlight:
 					try {
 						HighlightingHelper.GetProgrammersNotepadlanguageDoc (
-							(IEnumerable<EACodeLanguage>)Program.languages.Values,
+							(IEnumerable<EACodeLanguage>)Program.Languages.Values,
 							Program.RunConfig.outputFile
 						);
 					} catch (Exception e) {
@@ -174,41 +177,6 @@ namespace Nintenlord.Event_Assembler.Core
 				logWriter.Dispose ();
 
 			return exitStatus;
-		}
-
-		// EA GUI Entry point
-		public static void Assemble (string inputFile, string outputFile, string languageName, ILog log)
-		{
-			Program.RunConfig.inputFile = inputFile;
-			Program.RunConfig.outputFile = outputFile;
-			Program.RunConfig.language = languageName;
-
-			Assemble (log);
-		}
-
-		// EA GUI Entry point
-		public static void LoadCodes (string rawsFolder, string extension, bool isDirectory, bool collectDocCodes)
-		{
-			Program.RunConfig.rawsFolder = rawsFolder;
-			Program.RunConfig.rawsExtension = extension;
-			Program.RunConfig.isDirectory = isDirectory;
-
-			LoadCodes (collectDocCodes);
-		}
-
-		// EA GUI Entry point
-		public static void Disassemble (string inputFile, string outputFile, string languageName, bool addEndGuards, DisassemblyMode mode, int offset, Priority priority, int size, ILog messageLog)
-		{
-			Program.RunConfig.inputFile = inputFile;
-			Program.RunConfig.outputFile = outputFile;
-			Program.RunConfig.language = languageName;
-			Program.RunConfig.addEndGuards = addEndGuards;
-			Program.RunConfig.disassemblyMode = mode;
-			Program.RunConfig.disassemblyOffset = offset;
-			Program.RunConfig.disassemblyPriority = priority;
-			Program.RunConfig.disassemblySize = size;
-
-			Disassemble (messageLog);
 		}
 
 		private static void PrintUsage ()
@@ -664,9 +632,40 @@ namespace Nintenlord.Event_Assembler.Core
 		private static bool IsValidFileName (string name)
 		{
 			return !name.ContainsAnyOf (Path.GetInvalidPathChars ());
-		}
+        }
 
-		private static void Assemble (ILog log)
+
+
+        // EA GUI Entry point
+        public static void Assemble(string inputFile, string outputFile, string languageName, ILog log)
+        {
+            Program.RunConfig.inputFile = inputFile;
+            Program.RunConfig.outputFile = outputFile;
+            Program.RunConfig.language = languageName;
+
+            Assemble(log);
+        }
+
+        // Used by Emblem Magic (and could potentially be used by other external software)
+        public static void Assemble(EACodeLanguage language,
+            TextReader input, BinaryWriter output, ILog log)
+        {
+            List<string> stringList = new List<string>();
+            stringList.Add("_" + language.Name + "_");
+            stringList.Add("_EA_");
+            using (IPreprocessor preprocessor = new Preprocessor(log))
+            {
+                preprocessor.AddReserved(language.GetCodeNames());
+                preprocessor.AddDefined(stringList.ToArray());
+                using (IInputStream inputStream = new PreprocessingInputStream(input, preprocessor))
+                {
+                    new EAExpressionAssembler(language.CodeStorage,
+                        new TokenParser<int>(new Func<string, int>(StringExtensions.GetValue))).Assemble(inputStream, output, log);
+                }
+            }
+        }
+
+        private static void Assemble (ILog log)
 		{
 			TextReader input;
 			bool inputIsFile;
@@ -714,7 +713,7 @@ namespace Nintenlord.Event_Assembler.Core
 							if (!Program.CodesLoaded)
 								LoadCodes (false);
 							
-							EACodeLanguage language = Program.languages [Program.RunConfig.language];
+							EACodeLanguage language = Program.Languages [Program.RunConfig.language];
 
 							EAExpressionAssembler assembler = new EAExpressionAssembler (language.CodeStorage, new TokenParser<int> (new Func<string, int> (StringExtensions.GetValue)));
 							assembler.Assemble (inputStream, output, log);
@@ -753,9 +752,66 @@ namespace Nintenlord.Event_Assembler.Core
 
 			if (inputIsFile)
 				input.Close ();
-		}
+        }
 
-		private static void Disassemble (ILog log) {
+        // EA GUI Entry point
+        public static void Disassemble(string inputFile, string outputFile, string languageName, bool addEndGuards, DisassemblyMode mode, int offset, Priority priority, int size, ILog messageLog)
+        {
+            Program.RunConfig.inputFile = inputFile;
+            Program.RunConfig.outputFile = outputFile;
+            Program.RunConfig.language = languageName;
+            Program.RunConfig.addEndGuards = addEndGuards;
+            Program.RunConfig.disassemblyMode = mode;
+            Program.RunConfig.disassemblyOffset = offset;
+            Program.RunConfig.disassemblyPriority = priority;
+            Program.RunConfig.disassemblySize = size;
+
+            Disassemble(messageLog);
+        }
+
+        // Used by Emblem Magic (and could potentially be used by other external software)
+        public static void Disassemble(
+            EACodeLanguage language,
+            byte[] rom, string filename, TextWriter output,
+            bool addEndGuards, DisassemblyMode mode,
+            int offset, Priority priority, int size, ILog log)
+        {
+            if (offset > rom.Length)
+                log.AddError("Offset is larger than size of ROM.");
+            if (size <= 0 || size + offset > rom.Length)
+                size = rom.Length - offset;
+            IEnumerable<string[]> strArrays;
+            string[] lines;
+            switch (mode)
+            {
+                case DisassemblyMode.Block:
+                    strArrays = language.Disassemble(rom, offset, size, priority, addEndGuards, log);
+                    lines = CoreInfo.DefaultLines(language.Name, Path.GetFileName(filename), offset, new int?(size));
+                    break;
+                case DisassemblyMode.ToEnd:
+                    strArrays = language.DisassembleToEnd(rom, offset, priority, addEndGuards, log);
+                    lines = CoreInfo.DefaultLines(language.Name, Path.GetFileName(filename), offset, new int?());
+                    break;
+                case DisassemblyMode.Structure:
+                    strArrays = language.DisassembleChapter(rom, offset, addEndGuards, log);
+                    lines = CoreInfo.DefaultLines(language.Name, Path.GetFileName(filename), offset, new int?());
+                    break;
+                default:
+                    throw new ArgumentException();
+            }
+            if (log.ErrorCount == 0)
+            {
+                if (filename.Length > 0)
+                {
+                    output.WriteLine(Program.Frame(lines, "//", 1));
+                    output.WriteLine();
+                }
+                foreach (string[] strArray in strArrays)
+                    output.WriteLine(((IEnumerable<string>)strArray).ToElementWiseString(" ", "", ""));
+            }
+        }
+
+        private static void Disassemble (ILog log) {
 			if (!File.Exists (Program.RunConfig.inputFile)) {
 				log.AddError ("File `{0}` doesn't exist.", Program.RunConfig.inputFile);
 				return;
@@ -769,7 +825,7 @@ namespace Nintenlord.Event_Assembler.Core
 			if (!Program.CodesLoaded)
 				LoadCodes (false);
 
-			EACodeLanguage eaCodeLanguage = Program.languages [Program.RunConfig.language];
+			EACodeLanguage eaCodeLanguage = Program.Languages [Program.RunConfig.language];
 			byte[] code = File.ReadAllBytes (Program.RunConfig.inputFile);
 
 			if (Program.RunConfig.disassemblyOffset > code.Length) {
@@ -857,10 +913,20 @@ namespace Nintenlord.Event_Assembler.Core
 						streamWriter.WriteLine (((IEnumerable<string>)strArray).ToElementWiseString<string> (" ", "", ""));
 				}
 			}
-		}
+        }
 
-		private static void LoadCodes(bool collectDoc) {
-			Program.languages = (IDictionary<string, EACodeLanguage>)new Dictionary<string, EACodeLanguage> ();
+        // EA GUI Entry point
+        public static LanguageProcessor LoadCodes(string rawsFolder, string extension, bool isDirectory, bool collectDocCodes)
+        {
+            Program.RunConfig.rawsFolder = rawsFolder;
+            Program.RunConfig.rawsExtension = extension;
+            Program.RunConfig.isDirectory = isDirectory;
+
+            return (LoadCodes(collectDocCodes));
+        }
+
+        private static LanguageProcessor LoadCodes(bool collectDoc) {
+			Program.Languages = (IDictionary<string, EACodeLanguage>)new Dictionary<string, EACodeLanguage> ();
 
 			LanguageProcessor languageProcessor = new LanguageProcessor (collectDoc, new TemplateComparer (), Program.stringComparer);
 			IPointerMaker pointerMaker = (IPointerMaker)new GBAPointerMaker ();
@@ -896,7 +962,7 @@ namespace Nintenlord.Event_Assembler.Core
 
 				}
 
-				Program.languages [language.Key] = new EACodeLanguage (
+				Program.Languages [language.Key] = new EACodeLanguage (
 					language.Key,
 					pointerMaker,
 					pointerList,
@@ -904,6 +970,7 @@ namespace Nintenlord.Event_Assembler.Core
 					Program.stringComparer
 				);
 			}
+            return (languageProcessor);
 		}
 
 		public static void MakeDoc (string output, string rawsFolder, string extension, bool isDirectory, string header, string footer)
@@ -933,7 +1000,7 @@ namespace Nintenlord.Event_Assembler.Core
 
 		public static void Preprocess (string originalFile, string outputFile, string game, ILog messageLog)
 		{
-			EACodeLanguage eaCodeLanguage = Program.languages [game];
+			EACodeLanguage eaCodeLanguage = Program.Languages [game];
 
 			using (IPreprocessor preprocessor = (IPreprocessor)new Preprocessor (messageLog)) {
 				preprocessor.AddReserved (eaCodeLanguage.GetCodeNames ());

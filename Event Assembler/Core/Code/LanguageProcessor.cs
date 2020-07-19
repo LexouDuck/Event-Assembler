@@ -244,9 +244,67 @@ namespace Nintenlord.Event_Assembler.Core.Code
 				a.Clear ();
 				a.AddRange ((IEnumerable<string>)strArray);
 			}
-		}
+        }
 
-		private void WriteCode (List<LanguageProcessor.DocCode> list, IndentedTextWriter writer)
+        public string GetDoc (string code, string game)
+        {
+            string result = "";
+            List<string> result_format = new List<string>();
+            List<string> result_params = new List<string>();
+            string format;
+            string parameters = "";
+            foreach (KeyValuePair<string, List<DocCode>> file in this.docs)
+            {
+                if (file.Value == null)
+                    continue;
+                foreach (DocCode doc in file.Value)
+                {
+                    if (doc.languages.Contains(game))
+                    {
+                        format = doc.ToString();
+                        if (format == code || format.StartsWith(code + ' '))
+                        {
+                            if (result.Length == 0)
+                            {
+                                if (doc.mainDoc != null)
+                                {
+                                    foreach (string line in doc.mainDoc)
+                                        result += line + '\n';
+                                }
+                            }
+                            format = format.Replace(",", " ");
+                            if (!result_format.Contains(format))
+                                result_format.Add(format);
+
+                            if (doc.parameterDocs != null && doc.parameterDocs.Count > 0)
+                            {
+                                foreach (KeyValuePair<string, List<string>> param in doc.parameterDocs)
+                                {
+                                    if (result_params.Contains(param.Key))
+                                        continue;
+                                    else result_params.Add(param.Key);
+                                    parameters += "\n" + param.Key + "\t- ";
+                                    if (param.Value == null || param.Value.Count == 0)
+                                    {
+                                        parameters += "(no info available)";
+                                    }
+                                    else for (int i = 0; i < param.Value.Count; i++)
+                                        {
+                                            if (i > 0) parameters += "\n\t";
+                                            parameters += param.Value[i];
+                                        }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (result_format.Count > 0) result += "\nFormat:\n" + string.Join("\n", result_format);
+            if (result_params.Count > 0) result += "\n\nParameters:" + parameters;
+            return result;
+        }
+
+        private void WriteCode (List<LanguageProcessor.DocCode> list, IndentedTextWriter writer)
 		{
 			if (list [0].code is CodeTemplate) {
 				CodeTemplate[] codeTemplateArray = Array.ConvertAll<LanguageProcessor.DocCode, CodeTemplate> (list.ToArray (), (Converter<LanguageProcessor.DocCode, CodeTemplate>)(x => x.code as CodeTemplate));
