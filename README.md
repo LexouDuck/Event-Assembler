@@ -154,353 +154,353 @@ History/Changelog:
 ------------------
 
 V 1.0:
--First public release.
--Entered the Programming contest on FEU.
+- First public release.
+- Entered the Programming contest on FEU.
 
 V 1.1:
--Added codes: `ENUT`, `ENUF` and all condition codes.
+- Added codes: `ENUT`, `ENUF` and all condition codes.
 
 V 2.0:
--Added stuff to make code maintaining easier. 
+- Added stuff to make code maintaining easier. 
  Too many to list right now.
 
 V 3.0
--Added FE8 support for some codes.
--Added support for World map codes.
+- Added FE8 support for some codes.
+- Added support for World map codes.
 
 V 4.0
--Made definitions and labels have a scope.
--Added support for definition files.
+- Made definitions and labels have a scope.
+- Added support for definition files.
 
 V 4.1
--Fixed a bug in `SHLI` code
+- Fixed a bug in `SHLI` code
 
 V 4.2
--Fixed a bug in `REPA` code
+- Fixed a bug in `REPA` code
 
 V 5.0
--Added support for some FE6 codes
+- Added support for some FE6 codes
 
 V 5.1
--Added support for some FE8 codes.
+- Added support for some FE8 codes.
 
 V 5.2
--Fixed glitch with local variables.
--Added `MNC2` for FE7 and FE8 and fixed `MNCH` for FE8.
+- Fixed glitch with local variables.
+- Added `MNC2` for FE7 and FE8 and fixed `MNCH` for FE8.
 
 V 6.0
--Rewrote most of the source, added bunch of codes and abilities. 
--Removed scope for definitions.
+- Rewrote most of the source, added bunch of codes and abilities. 
+- Removed scope for definitions.
 
 V 6.1
--Fixed glitch with FE8 version of `UNIT`.
--Fixed `MISC` related glitches.
+- Fixed glitch with FE8 version of `UNIT`.
+- Fixed `MISC` related glitches.
 
 V 6.2
--Added FE6 `CHAR` support thanks to Kate/Klo/whatever.
+- Added FE6 `CHAR` support thanks to Kate/Klo/whatever.
 
 V 6.3
--Various codes added.
--Define file support re-added.
+- Various codes added.
+- Define file support re-added.
 
 V 6.4
--Pointer error with offsets higher than 01000000 fixed.
+- Pointer error with offsets higher than 01000000 fixed.
 
 V 6.5
--Fixed error handling space in quotes.
+- Fixed error handling space in quotes.
 
 V 6.6
--Added `MSGE` code that sends messages to message box.
--Added `#ifdef`, `#ifndef`, `#else`, `#endif` and `#undef`.
+- Added `MSGE` code that sends messages to message box.
+- Added `#ifdef`, `#ifndef`, `#else`, `#endif` and `#undef`.
 
 V 6.7
--Fixed `LOCA` `DOOR` for FE7 and FE6.
+- Fixed `LOCA` `DOOR` for FE7 and FE6.
 
 V 6.8
--Improved Exception handling to not crash on most assembly code mistakes.
+- Improved Exception handling to not crash on most assembly code mistakes.
 
 V 6.9
--Fixed error with FE8 `ENDA` code.
--Added markyjoe1990s FE7 template.
+- Fixed error with FE8 `ENDA` code.
+- Added markyjoe1990s FE7 template.
 
 V 7.0
--Added macro support.
--Included the first version of EA standard library.
--Moved most codes to language raws.
--Several code changes, removals and additions.
--Remade error and warning systems completely.
--Added support for arithmetic calculations for defined words.
--Added more arithmetic operations such as &, | and %.
+- Added macro support.
+- Included the first version of EA standard library.
+- Moved most codes to language raws.
+- Several code changes, removals and additions.
+- Remade error and warning systems completely.
+- Added support for arithmetic calculations for defined words.
+- Added more arithmetic operations such as &, | and %.
 
 V 7.1
--Added disassembly.
--Added some FE8 world map codes.
+- Added disassembly.
+- Added some FE8 world map codes.
 
 V 7.2
--Added option for chapter-wide disassembly.
--Some minor code changes.
--Updated EA standard library.
+- Added option for chapter-wide disassembly.
+- Some minor code changes.
+- Updated EA standard library.
 
 V 7.3
--Readded `SHLI` and `MOMA` codes.
--Readded proper coordinate support for FE8 unit data.
--Made language raws support bit-accurate codes.
--Added `REDA` for FE8
--Added `IFET` and changed `IFEV` to `IFEF`
--Added `ASME` code
--Updated EA standard library.
+- Readded `SHLI` and `MOMA` codes.
+- Readded proper coordinate support for FE8 unit data.
+- Made language raws support bit-accurate codes.
+- Added `REDA` for FE8
+- Added `IFET` and changed `IFEV` to `IFEF`.
+- Added `ASME` code
+- Updated EA standard library.
 
 V 7.4
--Fixed a bug with `MOMA` and `SHLI`.
--Fixed a bug in `LWMC` and `TEX8` for FE8.
--Added `CMDS`, `CMDL`, `FIG1` and `FIG2` code for FE8.
--Added `FLDT` and `RMSP` codes.
--Added binary support for assembly.
--Added support for preferred base for disassembly.
--Made ending guardians in disassembly an option.
--Made ending guardians appear at the end of every string of code.
+- Fixed a bug with `MOMA` and `SHLI`.
+- Fixed a bug in `LWMC` and `TEX8` for FE8.
+- Added `CMDS`, `CMDL`, `FIG1` and `FIG2` code for FE8.
+- Added `FLDT` and `RMSP` codes.
+- Added binary support for assembly.
+- Added support for preferred base for disassembly.
+- Made ending guardians in disassembly an option.
+- Made ending guardians appear at the end of every string of code.
 
 V 7.5
--Fixed a bug in FE8 unit data.
--Added preferred bases to most raw codes.
--Updated EA standard library.
+- Fixed a bug in FE8 unit data.
+- Added preferred bases to most raw codes.
+- Updated EA standard library.
 
 V 7.6
--Fixed a bug that caused binary numbers to not be recognized.
--Changed bases in raw codes to correct.
+- Fixed a bug that caused binary numbers to not be recognized.
+- Changed bases in raw codes to correct.
 
 V 7.7
--Fixed a bug related to uneven bit writing to the end of code.
--Added language raws specification. See file Language.raws in folder Language raws for details about the raws.
--Updated EA standard library.
+- Fixed a bug related to uneven bit writing to the end of code.
+- Added language raws specification. See file Language.raws in folder Language raws for details about the raws.
+- Updated EA standard library.
 
 V 7.8
--Added support for FE6 `AFEV` code.
--Updated template.
--Added `MESSAGEIF` code.
--Fixed FE7 `CHAI` coordinate version code.
--More error messages.
--Some other fixes.
--Updated EA standard library.
+- Added support for FE6 `AFEV` code.
+- Updated template.
+- Added `MESSAGEIF` code.
+- Fixed FE7 `CHAI` coordinate version code.
+- More error messages.
+- Some other fixes.
+- Updated EA standard library.
 
 V 7.9
--Fixed errors in Event assembler language file.
--Added `WARP` code for FE7.
--Added `TEXTSTART`, `TEXTSHOW`, `TEXTCONT` and `TEXTEND` codes for FE8. 
--Added an extra parameter to `REDA` code.
--Fixed coordinate related problems in `REDA` and FE8 `UNIT`.
--Added `ALIGN` code.
--Updated template.
--Updated EA standard library.
+- Fixed errors in Event assembler language file.
+- Added `WARP` code for FE7.
+- Added `TEXTSTART`, `TEXTSHOW`, `TEXTCONT` and `TEXTEND` codes for FE8. 
+- Added an extra parameter to `REDA` code.
+- Fixed coordinate related problems in `REDA` and FE8 `UNIT`.
+- Added `ALIGN` code.
+- Updated template.
+- Updated EA standard library.
 
 V 8.0
--Fixed crash on loading language raw files with different line ending modes.
--Fixed a code in language raws randomly getting ignored. 
--Added support for negative numbers.
--Some UI changes.
--Fixed `MOVE` code for FE6.
--Fixed FE8 `FADI`/`FADU` confusion.
--Fixed `TEX3` code.
--Added new parameter for `MUS3`.
--Added new parameter for `RMSP`.
--Added parameter to `MACC`.
--Split `SHOWMAP` and `HIDEMAP` codes from `FADU`, `FADI`, `FAWI` and `FAWU`.
--Renamed `TEX3` as `TEXTIFEM`, `TEX4` as `MORETEXT`, `TEX7` as `TEXTWM`.
--Removed `UNIT` Empty code, though EAstdlib has backwards  compability code.
--Removed data from `GOTO` and `MNCH`.
--Added lot's of FE6 and FE7 codes. Every code used in those games is covered somehow.
--Updated EA standard library.
+- Fixed crash on loading language raw files with different line ending modes.
+- Fixed a code in language raws randomly getting ignored. 
+- Added support for negative numbers.
+- Some UI changes.
+- Fixed `MOVE` code for FE6.
+- Fixed FE8 `FADI`/`FADU` confusion.
+- Fixed `TEX3` code.
+- Added new parameter for `MUS3`.
+- Added new parameter for `RMSP`.
+- Added parameter to `MACC`.
+- Split `SHOWMAP` and `HIDEMAP` codes from `FADU`, `FADI`, `FAWI` and `FAWU`.
+- Renamed `TEX3` as `TEXTIFEM`, `TEX4` as `MORETEXT`, `TEX7` as `TEXTWM`.
+- Removed `UNIT` Empty code, though EAstdlib has backwards  compability code.
+- Removed data from `GOTO` and `MNCH`.
+- Added lot's of FE6 and FE7 codes. Every code used in those games is covered somehow.
+- Updated EA standard library.
 
 V 8.1
--Rewrote macro handling to be faster and more predictable.
--Added and changed some codes, including FE7 & 8 World map codes.
--Added some built-in macros.
--Added pool ability.
--Made Event Assembler Language.txt generate automatically from raws and updated it considerably.
--Updated EA standard library.
+- Rewrote macro handling to be faster and more predictable.
+- Added and changed some codes, including FE7 & 8 World map codes.
+- Added some built-in macros.
+- Added pool ability.
+- Made Event Assembler Language.txt generate automatically from raws and updated it considerably.
+- Updated EA standard library.
 
 V 8.2
--Separated core functions to separate assembly, called Core. Core can only be run from command line.
--Included scripts to disassemble all chapters and world maps for all  3 GBA games.
--Added few FE6 and FE7 codes that I overlooked in previous release.
--Added description of doc codes to Language.raws file.
--Fixed last bits getting written wrong in FE8 `UNIT` code.
--Fixed a bug in `ITGM` for FE8.
--Fixed `MUSI` and `MUNO` FE8 confusion.
--Fixed FE7 `TEXTBOXTOBOTTOM` and `TEXTBOXTOTOP` mixup.
--Removed `CAM1` for FE8 for not working.
--Added some experimental FE8 codes.
--Added EAstdlib Macro and Command List.txt.
--Updated EA standard library.
+- Separated core functions to separate assembly, called Core. Core can only be run from command line.
+- Included scripts to disassemble all chapters and world maps for all  3 GBA games.
+- Added few FE6 and FE7 codes that I overlooked in previous release.
+- Added description of doc codes to Language.raws file.
+- Fixed last bits getting written wrong in FE8 `UNIT` code.
+- Fixed a bug in `ITGM` for FE8.
+- Fixed `MUSI` and `MUNO` FE8 confusion.
+- Fixed FE7 `TEXTBOXTOBOTTOM` and `TEXTBOXTOTOP` mixup.
+- Removed `CAM1` for FE8 for not working.
+- Added some experimental FE8 codes.
+- Added EAstdlib Macro and Command List.txt.
+- Updated EA standard library.
 
 V 8.3
--Added Assembly scripts.
--Added script for generating Event assembler language.txt.
--Made EA accept non-caps codes.
--Added `FIRE` and `GAST` for FE7.
--Fixed some FE7 codes.
--Fixed a problem with pool dumping.
--Fixed a problem with codes not incrementing offset properly.
--Updated EA standard library.
+- Added Assembly scripts.
+- Added script for generating Event assembler language.txt.
+- Made EA accept non-caps codes.
+- Added `FIRE` and `GAST` for FE7.
+- Fixed some FE7 codes.
+- Fixed a problem with pool dumping.
+- Fixed a problem with codes not incrementing offset properly.
+- Updated EA standard library.
 
 V 8.4
--Fixed FE7 `ENUT` and `ENUF` screw-up.
--Updated EA standard library.
+- Fixed FE7 `ENUT` and `ENUF` screw-up.
+- Updated EA standard library.
 
 V 8.5
--Made FE7 `IFET` and `IFEF` codes match `ENUT` and `ENUF`
--Added THE_END and LYN_END codes for FE7.
--Added `NCONVOS` and `NEVENTS` for the control freaks out there.
--Updated EA standard library.
+- Made FE7 `IFET` and `IFEF` codes match `ENUT` and `ENUF`.
+- Added THE_END and LYN_END codes for FE7.
+- Added `NCONVOS` and `NEVENTS` for the control freaks out there.
+- Updated EA standard library.
 
 V 9.0
--The great FE8 update.
--Improved disassembly performance, especially for FE8.
--Disabled `REDA` disassembling for causing problems.
--Removed bunch of faulty codes for FE8.
--Added large bunch of codes FE8.
--Added `CGSTAL` code for FE7.
--Renamed `TEX5` to `TEXTCG` for FE7.
--Added `MORETEXTCG` for FE7.
--Added `FROMCGTOBG`, `FROMBGTOCG`, `FROMCGTOMAP` for FE7.
--Added new built-in macro, String.
--Fixed error reporting error when file isn't found  with #include and #incbin
--Updated EA standard library.
+- The great FE8 update.
+- Improved disassembly performance, especially for FE8.
+- Disabled `REDA` disassembling for causing problems.
+- Removed bunch of faulty codes for FE8.
+- Added large bunch of codes FE8.
+- Added `CGSTAL` code for FE7.
+- Renamed `TEX5` to `TEXTCG` for FE7.
+- Added `MORETEXTCG` for FE7.
+- Added `FROMCGTOBG`, `FROMBGTOCG`, `FROMCGTOMAP` for FE7.
+- Added new built-in macro, String.
+- Fixed error reporting error when file isn't found  with #include and #incbin
+- Updated EA standard library.
 
 V 9.1
--Rewrote parsing.
--Added `<<` and `>>` bitshift operators.
--Removed `CODE` and `FILL` codes.
--Added `WORD`, `SHORT`, and `BYTE`.
--Improved error reporting.
--Updated EA standard library.
+- Rewrote parsing.
+- Added `<<` and `>>` bitshift operators.
+- Removed `CODE` and `FILL` codes.
+- Added `WORD`, `SHORT`, and `BYTE`.
+- Improved error reporting.
+- Updated EA standard library.
 
 V 9.2
--Fixed ; handling repeating the first code.
--Added proper errors to some symbol related parameters  being undefined.
--Added proper errors to built-in codes getting a parameter of wrong type.
--Fixed Terminating string templates misreporting length  during disassembly.
--Updated FE7 Template.
+- Fixed ; handling repeating the first code.
+- Added proper errors to some symbol related parameters  being undefined.
+- Added proper errors to built-in codes getting a parameter of wrong type.
+- Fixed Terminating string templates misreporting length  during disassembly.
+- Updated FE7 Template.
 
 V 9.3
--Fixed EA not giving the error on mis-aligned codes.
--Fixed crashing upon certain parsing errors.
--Fixed crash with 0x integer literals.
--Added FE6 and FE8 templates and updated FE7 one.
+- Fixed EA not giving the error on mis-aligned codes.
+- Fixed crashing upon certain parsing errors.
+- Fixed crash with 0x integer literals.
+- Added FE6 and FE8 templates and updated FE7 one.
 
 V 9.4
--Fixed line comments not getting ignored in block comments.
--Fixed error with custom error file when calling Core from command line.
--Fixed disassembly not handling mergeable codes lengths properly.
--Added offset of bad pointer to error message when handling the pointerlist of a chapter.
--Some performance improvements to both assembly and disassembly.
--Fixed crash when using read-only file as output file in assembly from command line.
--Updated EA standard library.
+- Fixed line comments not getting ignored in block comments.
+- Fixed error with custom error file when calling Core from command line.
+- Fixed disassembly not handling mergeable codes lengths properly.
+- Added offset of bad pointer to error message when handling the pointerlist of a chapter.
+- Some performance improvements to both assembly and disassembly.
+- Fixed crash when using read-only file as output file in assembly from command line.
+- Updated EA standard library.
 
 V 9.5
--Removed output showing window from taskbar.
--Made column numbering start from 1 instead of 0.
--Improved error when using vector of vectors as parameter.
--More minor performance improvements.
+- Removed output showing window from taskbar.
+- Made column numbering start from 1 instead of 0.
+- Improved error when using vector of vectors as parameter.
+- More minor performance improvements.
 
 V 9.6
--Renamed `GOTO` to `CALL` and `_GOTO_HELL` to `_CALL_HELL`.
--Fixed a bug causing `CURRENTOFFSET` to not print properly.
--Fixed length disassembly adding end guards in wrong places with wrong offsets.
--Added Programmers Notepad syntax highlighting scheme. Only works with version 2.0.8.718 of PN.
--Added shaky backwards compatibility for `CODE`. Define `USING_CODE` to use it.
--Updated EA standard library.
+- Renamed `GOTO` to `CALL` and `_GOTO_HELL` to `_CALL_HELL`.
+- Fixed a bug causing `CURRENTOFFSET` to not print properly.
+- Fixed length disassembly adding end guards in wrong places with wrong offsets.
+- Added Programmers Notepad syntax highlighting scheme. Only works with version 2.0.8.718 of PN.
+- Added shaky backwards compatibility for `CODE`. Define `USING_CODE` to use it.
+- Updated EA standard library.
 
 V 9.7
--Fixed errors in FE6 disassembly script, thanks to Omni.
--Fixed a raw file not being included with releases, causing `NCONVOS` and `NEVENTS` codes not to work.
--Added backwards compatibility for experimental codes moved to full codes.
--Made GUI not freeze when completing a task.
--Renamed some language raws files.
--Fixed crash on having wrong amount of parameters with ORG or `ALIGN`.
--Updated EA standard library.
+- Fixed errors in FE6 disassembly script, thanks to Omni.
+- Fixed a raw file not being included with releases, causing `NCONVOS` and `NEVENTS` codes not to work.
+- Added backwards compatibility for experimental codes moved to full codes.
+- Made GUI not freeze when completing a task.
+- Renamed some language raws files.
+- Fixed crash on having wrong amount of parameters with ORG or `ALIGN`.
+- Updated EA standard library.
 
 V 9.8
--Made EA abort writing any data to output if any errors are encountered.
--Updated EA standard library.
+- Made EA abort writing any data to output if any errors are encountered.
+- Updated EA standard library.
 
 V 9.9
--Fixed `SHORT` and `BYTE` giving alignment errors on 2 and 1 aligned codes.
--Updated Templates to match changes.
--Added `END_MAIN` code.
--Updated EA standard library to 2.13.
+- Fixed `SHORT` and `BYTE` giving alignment errors on 2 and 1 aligned codes.
+- Updated Templates to match changes.
+- Added `END_MAIN` code.
+- Updated EA standard library to 2.13.
 
 V 9.10
--Fixed disassembly always crashing.
--Stopped `MESSAGE`, `ERROR` and `WARNING` codes from printing the name of the code.
--Updated EA standard library to 2.14.
+- Fixed disassembly always crashing.
+- Stopped `MESSAGE`, `ERROR` and `WARNING` codes from printing the name of the code.
+- Updated EA standard library to 2.14.
 
 V 9.11
--Removed `ROMH`ackingCore.dll due to not being used.
--Updated EA standard library to 2.14. `TODO`
+- Removed `ROMH`ackingCore.dll due to not being used.
+- Updated EA standard library to 2.14. `TODO`
 
 V 9.11
--Crazycolorz5's Edits.
--Great AI update.
--Finally fixed the great FE7 `IFAT`/`IFAF` mixup.
--Integrated the many FE8 raws that Venno identified.
--Added many aliases for existing codes.
--Added a ton of macros. See EA standard library for full list.
--Changed name of "EA Standard library" to "EA Standard Library".
--Updated EA Standard Library to 3.0.
+- Crazycolorz5's Edits.
+- Great AI update.
+- Finally fixed the great FE7 `IFAT`/`IFAF` mixup.
+- Integrated the many FE8 raws that Venno identified.
+- Added many aliases for existing codes.
+- Added a ton of macros. See EA standard library for full list.
+- Changed name of "EA Standard library" to "EA Standard Library".
+- Updated EA Standard Library to 3.0.
 
 V 9.12
--Aliased `BYTE` as `CODE` for both backwards compatability and usage of #incbin
--Bundled Hack Installation and AI Assembly into Extensions folder.
--FE7, FE8: Added expanded templates for use in making hack buildfiles.
--Updated EA Standard Library to 3.1.
+- Aliased `BYTE` as `CODE` for both backwards compatability and usage of #incbin
+- Bundled Hack Installation and AI Assembly into Extensions folder.
+- FE7, FE8: Added expanded templates for use in making hack buildfiles.
+- Updated EA Standard Library to 3.1.
 
 V 10.0
--FE6: Added THE_END code in raws, replacing `_0x3E` (credit to Onmi)
--FE8: Changed old FE8 `IFET` to `CHECK_EVENTID`
--Updated EA Standard Library to 9.2.
--Made capitalization in includes and folder structure more consistent.
--Fixed bug where resources inconsistently closed when included.
--Fixed #incbin to use `BYTE` instead of `CODE`.
--Fixed bug where `#ifndef` didn't properly recognize automatic definitions.
--Made `>>` always do 32-bit logical shifts; Added `>>>` to do 32-bit arithmetic shifts.
--Fixed operator precedence to match that of C's.
--Loading a raw code will also load `_0xXXXX` where `XXXX` is its ID; If the code is <= 0xFF, it also loads `_0xXX`.
--Redefinitions are now only warnings, rather than errors.
--Added #incext; Searches Tools folder for the name of the tool provided, then calls the tool by command line with the rest of the parameters as commandline parameters, then inlines with `BYTE` any output written to stdout. An error is logged if the first bytes of the output are "ERROR: ".
--Added the Tools ParseFolder, Png2Dmp, and PortraitFormatter.
--Added `PUSH`/POP to store and load `CURRENTOFFSET`.
--Added #easteregg. Try to find them all!
+- FE6: Added THE_END code in raws, replacing `_0x3E` (credit to Onmi)
+- FE8: Changed old FE8 `IFET` to `CHECK_EVENTID`
+- Updated EA Standard Library to 9.2.
+- Made capitalization in includes and folder structure more consistent.
+- Fixed bug where resources inconsistently closed when included.
+- Fixed #incbin to use `BYTE` instead of `CODE`.
+- Fixed bug where `#ifndef` didn't properly recognize automatic definitions.
+- Made `>>` always do 32-bit logical shifts; Added `>>>` to do 32-bit arithmetic shifts.
+- Fixed operator precedence to match that of C's.
+- Loading a raw code will also load `_0xXXXX` where `XXXX` is its ID; If the code is <= 0xFF, it also loads `_0xXX`.
+- Redefinitions are now only warnings, rather than errors.
+- Added #incext; Searches Tools folder for the name of the tool provided, then calls the tool by command line with the rest of the parameters as commandline parameters, then inlines with `BYTE` any output written to stdout. An error is logged if the first bytes of the output are "ERROR: ".
+- Added the Tools ParseFolder, Png2Dmp, and PortraitFormatter.
+- Added `PUSH`/POP to store and load `CURRENTOFFSET`.
+- Added #easteregg. Try to find them all!
 
 V 10.1
--Fixed bugs with #incext
--Added `#runext` -- like incext but doesn't pass the `--to-stdout` option and discards output.
--Added `#ifndef` guards around Tools/Tool Helpers.txt
--Allowed escaping in parsing -- `\` lets the next character to be parsed plain. So, able to pass things like `My\ File.txt` or have `"` inside a quote, etc. This still needs some work when it's being lexed/displayed.
--Updated toolkit.
--Added `MNTS` code for FE8 (returns to title screen)
--Fixed Fe8Code assembling, which was produced by the disassembler.
+- Fixed bugs with #incext
+- Added `#runext` -- like incext but doesn't pass the `--to-stdout` option and discards output.
+- Added `#ifndef` guards around Tools/Tool Helpers.txt
+- Allowed escaping in parsing -- `\` lets the next character to be parsed plain. So, able to pass things like `My\ File.txt` or have `"` inside a quote, etc. This still needs some work when it's being lexed/displayed.
+- Updated toolkit.
+- Added `MNTS` code for FE8 (returns to title screen)
+- Fixed Fe8Code assembling, which was produced by the disassembler.
 
 V10.1.1
--Added `POIN2`; it's just `POIN` but doesn't require word-alignment.
--Fixed Hack Installation/setPointerTableEntry
--Added #inctext for programs that output event code, rather than just binary.
+- Added `POIN2`; it's just `POIN` but doesn't require word-alignment.
+- Fixed Hack Installation/setPointerTableEntry
+- Added #inctext for programs that output event code, rather than just binary.
 
 V 11.0
--Changed #inctext to #inctevent. I recommnend the use of this name in the future because it's more intuitive.
--Fixed bug where Core would hang if it got an invalid input file.
--Added `PROTECT` (start) (end) to make a region write-protected.
--Made Event assembler.exe look for .event files by default (over .txt)
--Changed lexing/parsing. 
--String literals now work (with `MESSAGE` and such)
--Labels/Definitions come into scope for parameters properly.
--Added ability for use of definitions in preprocessor calls.
--Made disassembly work again; changed auto-adding of `_0xXX` codes to not mess up disassembly.
--Changed disassemblies to use `ASSERT` for stronger protection over just `MESSAGE`-ing the currentOffset.
--Changed scripts to take/output .event files by default.
+- Changed #inctext to #inctevent. I recommnend the use of this name in the future because it's more intuitive.
+- Fixed bug where Core would hang if it got an invalid input file.
+- Added `PROTECT` (start) (end) to make a region write-protected.
+- Made Event assembler.exe look for .event files by default (over .txt)
+- Changed lexing/parsing. 
+- String literals now work (with `MESSAGE` and such)
+- Labels/Definitions come into scope for parameters properly.
+- Added ability for use of definitions in preprocessor calls.
+- Made disassembly work again; changed auto-adding of `_0xXX` codes to not mess up disassembly.
+- Changed disassemblies to use `ASSERT` for stronger protection over just `MESSAGE`-ing the currentOffset.
+- Changed scripts to take/output .event files by default.
 
 V11.0.1
--Aliased `#inctevent` as `#inctext` for backwards compatability with V10.1.1
+- Aliased `#inctevent` as `#inctext` for backwards compatability with V10.1.1
 
 
 
@@ -508,4 +508,4 @@ V11.0.1
 Future plans:
 -------------
 
--http://feuniverse.us/t/ea-features-to-add/1608
+- http://feuniverse.us/t/ea-features-to-add/1608
