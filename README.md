@@ -1,3 +1,4 @@
+
 Event-Assembler
 ===============
 Nintenlord's event code assembler tool for the Fire Emblem games on GBA (FE6, FE7, and FE8).
@@ -8,6 +9,8 @@ Nintenlord's event code assembler tool for the Fire Emblem games on GBA (FE6, FE
 Credits:
 --------
 
+##### Original README
+
 - Nintenlord for making this.
 - Kate/Klo/whatever for writing FE6 `CHAR` support
 - Everyone who submitted event codes for this, especially Fire Blazer and flyingace24.
@@ -17,11 +20,8 @@ Credits:
 - Ryrumeli for telling me the ASM routine that handles the events in FE8.
 - Omni for reporting errors with FE6 disassembly script.
 - Camtech075/Cam/Kam for making FE8 template.
-- Everyone who uses this and/or reports bugs and/or gives feedback.
 
--------------------
-Additional Credits:
--------------------
+##### Additional Credits
 
 - CrazyColorz5, for updating and maintaing EA after Nintenlord stopped working on it.
 - Vennobennu/Venno, for identifying many FE8 codes, and  making many of the codes that deal with the world map.
@@ -30,6 +30,11 @@ Additional Credits:
 - Camdar/CT075 and Zahlman, for inspiring a `UNIX`-like design for #incext.
 - LexouDuck, for adding documentation and aliases to many 'Language Raws' commands.
 
+##### Special Thanks
+
+- Everyone who has reported bugs and/or given feedback.
+- Everyone who uses this program.
+
 
 
 ------------
@@ -37,8 +42,10 @@ Legal Notes:
 ------------
 
 This program and everything it comes with, referred to as "product" from now on, is delivered "as is" and has no warranty whatsoever.
+
 You may modify, add and distribute the product in its entirety as you wish, with the condition that the origin of the product remains clear.
 In other words, any distribution of this product must clearly and explicitly state that it was originally created by Nintenlord.
+
 Any money made with this product belongs to the original creator, Nintenlord.
 
 
@@ -81,7 +88,7 @@ If you wish to use EA from your terminal/commandline, the format is the followin
 > Core D [language] [mode] [address] [priority] [length] -output:./dissassembly.event [FLAGS...]
 ```
 
-##### `ARGS`:
+##### ARGS:
 
 ```
 language =	"FE6", "FE7" or "FE8"
@@ -100,7 +107,7 @@ length	 =	Any valid number, must be under (ROMsize - address)
 			(only used in "Block" disassembly mode)
 ```
 
-##### `FLAGS`:
+##### FLAGS:
 
 ```
 -addEndGuards
